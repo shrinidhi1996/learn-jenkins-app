@@ -10,7 +10,12 @@ pipeline {
                 echo 'running the npm '
                 sh '''
                     npm --version
-                    npm start
+                    node --version
+                    ls -l
+                    npm ci
+                    ls -l
+                    npm run build
+                    ls -l
                 '''
             }
         }
