@@ -12,7 +12,7 @@ pipeline {
                     npm --version
                     node --version
                     ls -l
-                    npm ci
+                   // npm ci
                     ls -l
                     npm run build
                     ls -l
@@ -20,10 +20,12 @@ pipeline {
             }
         }
 
-        stage('npm test'){
-            steps{
+        stage('npm test') {
+            steps {
                 sh '''
                     npm test
+                    cd build
+                    test -f index.html
                 '''
             }
         } 
