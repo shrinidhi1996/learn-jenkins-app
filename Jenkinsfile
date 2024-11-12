@@ -1,13 +1,17 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'node:16-alpine' }
+    }
+    
     stages {
        
-        stage('inside container') {
+        stage('npm run') {
             steps {
-                echo 'Hello World'
-                sh 'pwd'
-                sh 'ls -l'
+                echo 'running the npm '
+                sh '''
+                    npm --version
+                    npm start
+                '''
             }
         }
     }
